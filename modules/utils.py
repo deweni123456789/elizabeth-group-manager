@@ -1,8 +1,9 @@
-# shared helpers
-from pyrogram.types import Message
+from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 
-async def reply_text_or_chat(msg: Message, text: str):
-    try:
-        await msg.reply_text(text)
-    except:
-        await msg.chat.send_message(text)
+def developer_button(text="Contact Developer"):
+    """
+    Returns an inline keyboard with developer contact.
+    """
+    return InlineKeyboardMarkup(
+        [[InlineKeyboardButton(text, url="https://t.me/deweni2")]]
+    )
